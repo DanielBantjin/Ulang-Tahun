@@ -1,3 +1,4 @@
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -32,28 +33,41 @@ body {
   transform-origin: bottom;
 }
 
-.letter {
-  width: 240px;
-  height: 150px;
-  background: white;
-  position: absolute;
-  top: 50px;
-  left: 30px;
-  border: 1px solid #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transition: opacity 1s ease, transform 1s ease;
-}
-
 .bottom-flap {
   width: 300px;
   height: 100px;
   background: #f5deb3;
   position: absolute;
   bottom: 0;
+}
+
+.letter {
+  width: 300px;
+  height: 400px;
+  background: white;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease, top 1s ease;
+  z-index: 2;
+}
+
+.letter p {
+  margin: 0;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.letter .footer {
+  text-align: right;
+  font-weight: bold;
 }
 
 .balloons {
@@ -76,8 +90,6 @@ body {
   animation: rise 4s ease-in infinite;
 }
 
-
-
 @keyframes rise {
   0% {
     transform: translateY(0) scale(1);
@@ -89,43 +101,69 @@ body {
   }
 }
 
-.letter {
-  width: 300px;
-  height: 400px; /* Pastikan tinggi kertas cukup besar */
-  background: white;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  border: 1px solid #ddd;
-  display: flex;
-  flex-direction: column; /* Teks diatur secara vertikal */
-  justify-content: space-between; /* Spasi antara konten utama dan footer */
-  padding: 20px; /* Tambahkan ruang di sekitar teks */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transition: opacity 1s ease, transform 1s ease, top 1s ease;
-  z-index: 2;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .envelope {
+    width: 250px;
+    height: 150px;
+  }
+
+  .top-flap {
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-bottom: 75px solid #f5deb3;
+  }
+
+  .letter {
+    width: 250px;
+    height: 350px;
+    padding: 15px;
+  }
+
+  .letter p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .letter .footer {
+    font-size: 12px;
+  }
+
+  .heart {
+    width: 15px;
+    height: 15px;
+  }
 }
 
-.letter p {
-  margin: 0;
-  line-height: 1.6;
-  text-align: justify; /* Teks utama rata kiri-kanan */
-}
+@media (max-width: 480px) {
+  .envelope {
+    width: 200px;
+    height: 120px;
+  }
 
-.letter .footer {
-  text-align: right; /* Teks diatur ke kanan */
-  font-weight: bold;
-  margin-top: 10px; /* Tambahkan jarak atas jika diperlukan */
-}
+  .top-flap {
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 60px solid #f5deb3;
+  }
 
+  .letter {
+    width: 200px;
+    height: 300px;
+    padding: 10px;
+  }
 
+  .letter p {
+    font-size: 12px;
+    line-height: 1.2;
+  }
 
-.envelope {
-  position: relative;
-  z-index: 1; /* Amplop berada di bawah surat */
-}
+  .letter .footer {
+    font-size: 10px;
+  }
 
-.top-flap {
-  z-index: 1; /* Flap atas tetap di bawah surat */
+  .heart {
+    width: 10px;
+    height: 10px;
+  }
 }
