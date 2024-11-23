@@ -1,0 +1,131 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+}
+
+.envelope {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  cursor: pointer;
+}
+
+.top-flap {
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 100px solid #f5deb3;
+  position: absolute;
+  top: 0;
+  transition: transform 1s ease;
+  transform-origin: bottom;
+}
+
+.letter {
+  width: 240px;
+  height: 150px;
+  background: white;
+  position: absolute;
+  top: 50px;
+  left: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.bottom-flap {
+  width: 300px;
+  height: 100px;
+  background: #f5deb3;
+  position: absolute;
+  bottom: 0;
+}
+
+.balloons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heart {
+  width: 20px;
+  height: 20px;
+  background: red;
+  position: absolute;
+  bottom: 0;
+  clip-path: polygon(50% 0%, 61% 18%, 82% 18%, 100% 35%, 100% 61%, 82% 82%, 50% 100%, 18% 82%, 0% 61%, 0% 35%, 18% 18%, 39% 18%);
+  animation: rise 4s ease-in infinite;
+}
+
+
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.letter {
+  width: 300px;
+  height: 400px; /* Pastikan tinggi kertas cukup besar */
+  background: white;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column; /* Teks diatur secara vertikal */
+  justify-content: space-between; /* Spasi antara konten utama dan footer */
+  padding: 20px; /* Tambahkan ruang di sekitar teks */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease, top 1s ease;
+  z-index: 2;
+}
+
+.letter p {
+  margin: 0;
+  line-height: 1.6;
+  text-align: justify; /* Teks utama rata kiri-kanan */
+}
+
+.letter .footer {
+  text-align: right; /* Teks diatur ke kanan */
+  font-weight: bold;
+  margin-top: 10px; /* Tambahkan jarak atas jika diperlukan */
+}
+
+
+
+.envelope {
+  position: relative;
+  z-index: 1; /* Amplop berada di bawah surat */
+}
+
+.top-flap {
+  z-index: 1; /* Flap atas tetap di bawah surat */
+}
